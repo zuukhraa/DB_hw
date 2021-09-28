@@ -7,15 +7,15 @@ create table author (
 create table publishingHouse (
     id serial primary key,
     name varchar(255) not null,
-    city varchar(255) not null,
+    city varchar(100) not null,
     telephoneNumber integer not null,
-    email varchar(255) not null,
-    website varchar(255) not null
+    email varchar(100) not null,
+    website varchar(100) not null
 );
 
 create table genreDepartment (
     id serial primary key,
-    name varchar (255) not null
+    name varchar (25) not null
 );
 
 create table book (
@@ -35,13 +35,13 @@ create table book (
      visitor_firstName varchar(255) not null,
      visitor_lastName varchar(255) not null,
      passport integer not null,
-     home_address varchar (255) not null
+     home_address varchar (75) not null
  );
 
  create table rent (
      id serial primary key,
-     data_of_issue varchar(255) not null,
-     return_date varchar(255) not null,
+     data_of_issue varchar(20) not null,
+     return_date varchar(20) not null,
      libraryCard_id integer not null,
      foreign key (libraryCard_id) references library_card (id)
  );
