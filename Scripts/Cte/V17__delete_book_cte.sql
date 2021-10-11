@@ -4,6 +4,3 @@ with delete_book_cte (id) as (
 )
 delete from book
 where book_id in (select id from delete_book_cte);
-
-
-
