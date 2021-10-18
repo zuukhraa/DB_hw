@@ -1,9 +1,9 @@
-//все книги определённого автора 
-with recursive cte1 (book_author)
+//id аренд определённой книги 
+with recursive cte1 (all_rent)
 as 
-(select distinct author_id from book 
-where author_id = 1
+(select distinct book_id from rent_book 
+where book_id = 1
 union all
-select book_id from book
-inner join cte1 on cte1.book_author = book.author_id)
+select rent_id from rent_book
+inner join cte1 on cte1.all_rent = rent_book.book_id)
 select * from cte1;
