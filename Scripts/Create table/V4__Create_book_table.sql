@@ -1,7 +1,7 @@
 create table book (
                       book_id serial primary key,
-                      name varchar(255) not null,
-                      yearOfPublishing varchar(15) not null,
+                      name varchar(255) check(char_length(name) > 1),
+                      yearOfPublishing varchar(15) check(char_length(yearOfPublishing) > 1),
                       author_id integer not null,
                       publishing_house_id integer not null,
                       genre_department_id integer not null,
