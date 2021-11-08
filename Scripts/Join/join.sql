@@ -34,7 +34,7 @@ select * from library_card cross join rent;
 //natural_join
 //таблица, которая включает в себя данные читательского билета и аренды. Столбец id аренды не повторяется
 
-select * from library_card cross join rent;
+select * from library_card natural join rent;
 
 //self_join
 //из таблицы "Книга" создаем таблицу, в которой будут хранится id, название и года публикаций книг, у которых год публикации меньше книги с id = 1
