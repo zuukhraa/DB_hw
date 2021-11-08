@@ -1,70 +1,63 @@
-{\rtf1\ansi\ansicpg1251\cocoartf2580
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;\red252\green33\blue37;}
-{\*\expandedcolortbl;;\cssrgb\c100000\c23137\c18824;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh14980\viewkind0
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+//inner_join
+//таблица названий книг с авторами
 
-\f0\fs26 \cf2 //inner_join\
-//\uc0\u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1072  \u1085 \u1072 \u1079 \u1074 \u1072 \u1085 \u1080 \u1081  \u1082 \u1085 \u1080 \u1075  \u1089  \u1072 \u1074 \u1090 \u1086 \u1088 \u1072 \u1084 \u1080 \
-\
-select book.name, author.first_name, author.last_name\
-from book\
-join author on author.author_id  = book.author_id;\
-\
-//left_join\
-//\uc0\u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1072  \u1089  \u1085 \u1072 \u1079 \u1074 \u1072 \u1085 \u1080 \u1077 \u1084  \u1082 \u1085 \u1080 \u1075 , \u1075 \u1086 \u1076 \u1086 \u1084  \u1087 \u1091 \u1073 \u1083 \u1080 \u1082 \u1072 \u1094 \u1080 \u1080  \u1080  \u1085 \u1072 \u1079 \u1074 \u1072 \u1085 \u1080 \u1077 \u1084  \u1078 \u1072 \u1085 \u1088 \u1072 , \u1076 \u1072 \u1078 \u1077  \u1077 \u1089 \u1083 \u1080  \u1074  \u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1077  "\u1046 \u1072 \u1085 \u1088 " \u1085 \u1077 \u1090  \u1089 \u1086 \u1074 \u1087 \u1072 \u1076 \u1077 \u1085 \u1080 \u1081 \
-\
-select book.name, book.yearOfPublishing, genre_department.name\
-from book\
-left join genre_department on book.genre_department_id = genre_department.genre_department_id;\
-\
-//right_join\
-//\uc0\u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1072  \u1089  \u1085 \u1072 \u1079 \u1074 \u1072 \u1085 \u1080 \u1077 \u1084  \u1082 \u1085 \u1080 \u1075 , \u1075 \u1086 \u1076 \u1086 \u1084  \u1087 \u1091 \u1073 \u1083 \u1080 \u1082 \u1072 \u1094 \u1080 \u1080  \u1080  \u1085 \u1072 \u1079 \u1074 \u1072 \u1085 \u1080 \u1077 \u1084  \u1078 \u1072 \u1085 \u1088 \u1072 , \u1076 \u1072 \u1078 \u1077  \u1077 \u1089 \u1083 \u1080  \u1074  \u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1077  "\u1050 \u1085 \u1080 \u1075 \u1072 " \u1085 \u1077 \u1090  \u1089 \u1086 \u1074 \u1087 \u1072 \u1076 \u1077 \u1085 \u1080 \u1081 \
-\
-select book.name, book.yearOfPublishing, genre_department.name\
-from book\
-right join genre_department on book.genre_department_id = genre_department.genre_department_id;\
-\
-//full_join\
-//\uc0\u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1072  \u1072 \u1074 \u1090 \u1086 \u1088 \u1086 \u1074  \u1074 \u1089 \u1077 \u1093  \u1082 \u1085 \u1080 \u1075  \u1080  \u1082 \u1085 \u1080 \u1075  \u1074 \u1089 \u1077 \u1093  \u1072 \u1074 \u1090 \u1086 \u1088 \u1086 \u1074 \
-\
-select book.name, author.first_name, author.last_name\
-from author full join "book"\
-on author.author_id = "book".author_id;\
-\
-//cross_join\
-//\uc0\u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1072  \u1074 \u1089 \u1077 \u1074 \u1086 \u1079 \u1084 \u1086 \u1078 \u1085 \u1099 \u1093  \u1074 \u1072 \u1088 \u1080 \u1072 \u1085 \u1090 \u1086 \u1074  \u1090 \u1072 \u1073 \u1083 \u1080 \u1094  \u1095 \u1080 \u1090 \u1072 \u1090 \u1077 \u1083 \u1100 \u1089 \u1082 \u1086 \u1075 \u1086  \u1073 \u1080 \u1083 \u1077 \u1090 \u1072  \u1080  \u1072 \u1088 \u1077 \u1085 \u1076 \u1099 \
-\
-select * from library_card cross join rent;\
-\
-//natural_join\
-//\uc0\u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1072 , \u1082 \u1086 \u1090 \u1086 \u1088 \u1072 \u1103  \u1074 \u1082 \u1083 \u1102 \u1095 \u1072 \u1077 \u1090  \u1074  \u1089 \u1077 \u1073 \u1103  \u1076 \u1072 \u1085 \u1085 \u1099 \u1077  \u1095 \u1080 \u1090 \u1072 \u1090 \u1077 \u1083 \u1100 \u1089 \u1082 \u1086 \u1075 \u1086  \u1073 \u1080 \u1083 \u1077 \u1090 \u1072  \u1080  \u1072 \u1088 \u1077 \u1085 \u1076 \u1099 . \u1057 \u1090 \u1086 \u1083 \u1073 \u1077 \u1094  id \u1072 \u1088 \u1077 \u1085 \u1076 \u1099  \u1085 \u1077  \u1087 \u1086 \u1074 \u1090 \u1086 \u1088 \u1103 \u1077 \u1090 \u1089 \u1103 \
-\
-select * from library_card cross join rent;\
-\
-//self_join\
-//\uc0\u1080 \u1079  \u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1099  "\u1050 \u1085 \u1080 \u1075 \u1072 " \u1089 \u1086 \u1079 \u1076 \u1072 \u1077 \u1084  \u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1091 , \u1074  \u1082 \u1086 \u1090 \u1086 \u1088 \u1086 \u1081  \u1073 \u1091 \u1076 \u1091 \u1090  \u1093 \u1088 \u1072 \u1085 \u1080 \u1090 \u1089 \u1103  id, \u1085 \u1072 \u1079 \u1074 \u1072 \u1085 \u1080 \u1077  \u1080  \u1075 \u1086 \u1076 \u1072  \u1087 \u1091 \u1073 \u1083 \u1080 \u1082 \u1072 \u1094 \u1080 \u1081  \u1082 \u1085 \u1080 \u1075 , \u1091  \u1082 \u1086 \u1090 \u1086 \u1088 \u1099 \u1093  \u1075 \u1086 \u1076  \u1087 \u1091 \u1073 \u1083 \u1080 \u1082 \u1072 \u1094 \u1080 \u1080  \u1084 \u1077 \u1085 \u1100 \u1096 \u1077  \u1082 \u1085 \u1080 \u1075 \u1080  \u1089  id = 1\
-\
-select a.book_id, a.name, a.yearOfPublishing\
-from book a, book b\
-where a.yearOfPublishing < b.yearOfPublishing\
- and b.book_id = 1;\
-\
-//anti_join\
-//\uc0\u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1072 , \u1074  \u1082 \u1086 \u1090 \u1086 \u1088 \u1086 \u1081  \u1093 \u1088 \u1072 \u1085 \u1103 \u1090 \u1089 \u1103  id \u1078 \u1072 \u1085 \u1088 \u1086 \u1074  \u1090 \u1072 \u1082 \u1080 \u1093  \u1082 \u1085 \u1080 \u1075 , \u1082 \u1086 \u1090 \u1086 \u1088 \u1099 \u1093  \u1085 \u1077 \u1090  \u1074  \u1085 \u1072 \u1083 \u1080 \u1095 \u1080 \u1080  \u1074  \u1073 \u1080 \u1073 \u1083 \u1080 \u1086 \u1090 \u1077 \u1082 \u1077 \
-\
-select b.genre_department_id\
-from "book" b\
-where not exists(select 1\
-from genre_department g\
-where g.genre_department_id = b.genre_department_id);\
-\
-//semi_join\
-//\uc0\u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1072 , \u1074  \u1082 \u1086 \u1090 \u1086 \u1088 \u1086 \u1081  \u1093 \u1088 \u1072 \u1085 \u1103 \u1090 \u1089 \u1103  id \u1078 \u1072 \u1085 \u1088 \u1086 \u1074  \u1090 \u1072 \u1082 \u1080 \u1093  \u1082 \u1085 \u1080 \u1075 , \u1082 \u1086 \u1090 \u1086 \u1088 \u1099 \u1077  \u1077 \u1089 \u1090 \u1100  \u1074  \u1073 \u1080 \u1073 \u1083 \u1080 \u1086 \u1090 \u1077 \u1082 \u1077 \
-\
-select b.genre_department_id\
-from "book" b\
-where exists(select 1\
-from genre_department g\
-where g.genre_department_id = b.genre_department_id);}
+select book.name, author.first_name, author.last_name
+from book
+join author on author.author_id  = book.author_id;
+
+//left_join
+//таблица с названием книг, годом публикации и названием жанра, даже если в таблице "Жанр" нет совпадений
+
+select book.name, book.yearOfPublishing, genre_department.name
+from book
+left join genre_department on book.genre_department_id = genre_department.genre_department_id;
+
+//right_join
+//таблица с названием книг, годом публикации и названием жанра, даже если в таблице "Книга" нет совпадений
+
+select book.name, book.yearOfPublishing, genre_department.name
+from book
+right join genre_department on book.genre_department_id = genre_department.genre_department_id;
+
+//full_join
+//таблица авторов всех книг и книг всех авторов
+
+select book.name, author.first_name, author.last_name
+from author full join "book"
+on author.author_id = "book".author_id;
+
+//cross_join
+//таблица всевозможных вариантов таблиц читательского билета и аренды
+
+select * from library_card cross join rent;
+
+//natural_join
+//таблица, которая включает в себя данные читательского билета и аренды. Столбец id аренды не повторяется
+
+select * from library_card cross join rent;
+
+//self_join
+//из таблицы "Книга" создаем таблицу, в которой будут хранится id, название и года публикаций книг, у которых год публикации меньше книги с id = 1
+
+select a.book_id, a.name, a.yearOfPublishing
+from book a, book b
+where a.yearOfPublishing < b.yearOfPublishing
+ and b.book_id = 1;
+
+//anti_join
+//таблица, в которой хранятся id жанров таких книг, которых нет в наличии в библиотеке
+
+select b.genre_department_id
+from "book" b
+where not exists(select 1
+from genre_department g
+where g.genre_department_id = b.genre_department_id);
+
+//semi_join
+//таблица, в которой хранятся id жанров таких книг, которые есть в библиотеке
+
+select b.genre_department_id
+from "book" b
+where exists(select 1
+from genre_department g
+where g.genre_department_id = b.genre_department_id);
