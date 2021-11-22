@@ -108,3 +108,10 @@ UNION
 select firstName, lastName, total as hours from t1 where total = (select max(total) from t1);
 
 -- 6) Для каждого пилота вывести цепочку городов, по которым он летал.
+select crew.name, array_agg(flights.city_arrival order by flights.departure_airport_id asc) towndown
+from crew
+         right join airplane on crew.airplane_id = airplane.airplane_id
+         right join flights on flights.airplane_id = airplane.airplane_id
+         right join airport on flights.departure_airport_id = airport.airport_id
+where type_of_position = 'pilot'
+group by crew.name;
